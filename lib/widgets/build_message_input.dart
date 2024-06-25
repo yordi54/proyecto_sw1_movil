@@ -46,7 +46,7 @@ class _BuildMessageInputState extends State<BuildMessageInput> {
             ),
             const SizedBox(width: 10),
             CircleAvatar(
-              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+              backgroundColor: Colors.greenAccent,
               child: IconButton(
                 icon: const Icon(Icons.send, color: Colors.white),
                 onPressed: () {
@@ -60,7 +60,7 @@ class _BuildMessageInputState extends State<BuildMessageInput> {
             ),
             const SizedBox(width: 10),
             CircleAvatar(
-              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+              backgroundColor: Colors.greenAccent,
               child: IconButton(
                 icon: const Icon(Icons.mic, color: Colors.white),
                 onPressed: () {},

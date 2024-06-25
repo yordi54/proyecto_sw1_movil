@@ -17,59 +17,6 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   final AuthController authController = Get.find();
   final ChatController chatController = Get.find();
-  
-  /* PusherChannelsFlutter pusher = PusherChannelsFlutter.getInstance();
-  AuthController _authController = Get.find();
-
-
-  void initPusher() async {
-    final userId = _authController.user.value!.id;
-    try{
-       await pusher.init(
-        apiKey: '5c23fb9bd20e85ee24b1',
-        cluster: 'us2',
-        onSubscriptionSucceeded: onSubscriptionSucceeded,
-        onEvent: onEvent,
-        onSubscriptionError: onSubscriptionError,
-        onError: onError ,
-        onConnectionStateChange: onConnectionStateChange,
-      );
-      
-      await pusher.connect();
-      await pusher.subscribe(channelName: 'chatUsers.$userId');
-      print('Conectado a Pusher');
-
-    }catch(e){
-      print('Error al conectar con Pusher: $e');
-    }
-  }
-
-  void onSubscriptionSucceeded(String channelName, dynamic data) {
-    print("onSubscriptionSucceeded: $channelName data: $data");
-  }
-
-  void onEvent(PusherEvent event) {
-    print("onEvent: ${event.toString()}");
-  }
-
-  void onSubscriptionError(String message, dynamic e) {
-    print("onSubscriptionError: $message Exception: $e");
-  }
-
-  void onError(String message, int? code, dynamic e) {
-  print("onError: $message code: $code exception: $e");
-}
-
-  void onConnectionStateChange(String currentState, String previousState) {
-    print("onConnectionStateChange: $currentState from $previousState");
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    initPusher();
-  } */
-
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +37,7 @@ class _ChatScreenState extends State<ChatScreen> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children:  [
-                Text('${member.firstName} ${member.lastName} ', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                Text('${member.firstName} ${member.lastName} ', overflow: TextOverflow.ellipsis, maxLines: 2, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                 const Text('En línea', style: TextStyle(fontSize: 12, color: Colors.white)),
               ],
             )   
@@ -99,9 +46,7 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
       body: Obx((){
         final currentChat = chatController.chats.value!.firstWhere((element) => element.members.contains(member));
-        if(currentChat.messages.isEmpty){
-          return const Center(child: Text('No hay mensajes'));
-        }else{
+        
           return Column(
             children: [
               Expanded(
@@ -118,7 +63,7 @@ class _ChatScreenState extends State<ChatScreen> {
             ],
           );
         }
-      })
+      )
     );
   }
 }

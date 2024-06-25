@@ -37,6 +37,13 @@ class _HomePageState extends State<HomeScreen> {
         title: const Text('Chats'),
         centerTitle: true,
         actions: [
+          //actualizar
+          IconButton(
+            icon: const Icon(Icons.refresh, color: Colors.white),
+            onPressed: () {
+              _chatController.updateChats(_authController.user.value!.id);
+            },
+          ),
           //icon search
           IconButton(
             icon: const Icon(Icons.search, color: Colors.white),
@@ -75,7 +82,6 @@ class _HomePageState extends State<HomeScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          //add chat
         },
         backgroundColor: Theme.of(context).primaryColor,
         child: const Icon(Icons.add_comment_sharp),
@@ -84,3 +90,5 @@ class _HomePageState extends State<HomeScreen> {
     );
   }
 }
+
+

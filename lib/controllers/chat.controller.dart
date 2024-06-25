@@ -144,9 +144,26 @@ class ChatController extends GetxController{
     try{
       final response = await ChatService.getChats(userId);
       //response ['chats']
+      //agregar la lista de chats
       chats.value = List<Chat>.from(response['chats'].map((x) => Chat.fromJson(x)));
       //notificar a los observadores
       update();
+
+      
+    }catch(e){
+      Get.snackbar('Error', e.toString(), snackPosition: SnackPosition.BOTTOM);
+    }
+
+  }
+
+  //actualizar chats
+  void updateChats(int userId) async{
+    try{
+      final response = await ChatService.getChats(userId);
+      //response ['chats']
+      chats.value = List<Chat>.from(response['chats'].map((x) => Chat.fromJson(x)));
+      //notificar a los observadores
+      chats.refresh();
 
       
     }catch(e){
