@@ -46,11 +46,11 @@ class ChatUserCard extends StatelessWidget {
           ],
         ),
         title: Text('${member.firstName} ${member.lastName}'),
-        subtitle:  Text(latestMessage.translatedText.content, maxLines: 1, overflow: TextOverflow.ellipsis),
+        subtitle:  Text( latestMessage.id != 0 ? latestMessage.translatedText.content : '', maxLines: 1, overflow: TextOverflow.ellipsis),
         trailing: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children:  [
-            Text(latestMessage.getTime()),
+            Text(latestMessage.id != 0 ? latestMessage.getTime() : ''),
           ],
       ),
       onTap: ()  {

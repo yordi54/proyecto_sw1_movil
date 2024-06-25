@@ -24,7 +24,7 @@ class _BuildMessageState extends State<BuildMessage> {
           maxWidth: MediaQuery.of(context).size.width * 0.75,
         ),
         decoration: BoxDecoration(
-          color: widget.isMe ? Colors.blue : Colors.grey[700],
+          color: widget.isMe ? Colors.green : Colors.grey[700],
           borderRadius: BorderRadius.circular(10),
         ),
         child: Column(

@@ -18,7 +18,7 @@ import 'package:proyecto_sw1/controllers/auth.controller.dart';
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Colors.blue, Colors.white],
+            colors: [Colors.greenAccent, Colors.white],
           ),
         ),
         child: Center(
@@ -30,7 +30,7 @@ import 'package:proyecto_sw1/controllers/auth.controller.dart';
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset('assets/images/logo.png', width: 150, height: 150, color: Colors.deepOrange ),
+                    Image.asset('assets/images/logo.png', width: 150, height: 150, color: Colors.green ),
                     const SizedBox(height: 16),
                     const Text('Inicio de Sesión', style: TextStyle(fontSize: 24, color: Colors.white )),
                     const SizedBox(height: 16),
@@ -81,7 +81,7 @@ import 'package:proyecto_sw1/controllers/auth.controller.dart';
                       child: Obx(() {
                         return ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blue,
+                            backgroundColor: Colors.green,
                             padding: const EdgeInsets.symmetric(vertical: 16.0),
                           ),
                           onPressed: _authController.isLoading.value
